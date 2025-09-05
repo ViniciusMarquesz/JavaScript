@@ -1,44 +1,70 @@
-const listaAnimais = document.querySelector('.animais-lista');
+const animaisLista = document.querySelector('.animais-lista');
 
-const height = listaAnimais.scrollHeight; // Tamanho total do item
-const animaisTop = listaAnimais.offsetTop;
-const animaisLeft = listaAnimais.offsetLeft;
-
-const primeiroh2 = document.querySelector('h2');
-const h2Left = primeiroh2.offsetLeft;
-
-
-
-const rect = primeiroh2.getBoundingClientRect();
-console.log(rect)
-
-const section = document.querySelector('.animais');
-
-const rectSection = section.getBoundingClientRect();
-rect.height; // height do elemento
-rect.width; // width do elemento
-rect.top; // distância entre o topo do elemento e o scroll
-
-
-console.log(
-   window.innerWidth, // width do janela
-   window.outerWidth, // soma dev tools também
-   window.innerHeight, // height do janela
-   window.outerHeight, // soma a barra de endereço
-
-   window.pageYOffset, // distância total do scroll vertical
-   window.pageXOffset, // distância total do scroll horizontal
-)
-
-if(window.innerWidth < 600) {
-  console.log('Tela menor que 600px');
+function executarCallback(event) {
+  const currentTarget = event.currentTarget; // this
+  const target = event.target; // onde o clique ocorreu
+  const type = event.type; // tipo de evento
+  const path = event.path;
+  console.log(currentTarget, target, type, path);
 }
 
+// animaisLista.addEventListener('click', executarCallback);
 
-const small = window.matchMedia('(max-width: 600px)');
 
-if(small.matches) {
-  console.log('Tela menor que 600px')
-} else {
-  console.log('Tela maior que 600px')
+const linkExterno = document.querySelector('a[href^="http"]');
+
+function clickNoLink(event) {
+  event.preventDefault();
+  console.log(event.currentTarget.href);
 }
+
+linkExterno.addEventListener('click', clickNoLink);
+
+
+const img = document.querySelector('img');
+
+function callback(event) {
+  console.log(this); // retorna a imagem
+  console.log(this.getAttribute('src'));
+}
+
+img.addEventListener('click', callback);
+
+
+const h1 = document.querySelector('h1');
+
+function callback(event) {
+  console.log(event.type, event);
+}
+
+   h1.addEventListener('click', callback);
+   h1.addEventListener('mouseenter', callback);
+   window.addEventListener('scroll', callback);
+   window.addEventListener('resize', callback);
+   window.addEventListener('keydown', callback);
+
+function handleKeyboard(event) {
+  if(event.key === 'a')
+    document.body.classList.toggle('azul');
+  else if(event.key === 'v')
+    document.body.classList.toggle('vermelho');
+}
+
+window.addEventListener('keydown', handleKeyboard);
+
+
+const imgs = document.querySelectorAll('img');
+
+function handleImg(event) {
+   console.log(event.target)
+}
+
+imgs.forEach((img) => {
+   img.addEventListener('click', handleImg)
+})
+
+
+
+
+
+
