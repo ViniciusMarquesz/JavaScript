@@ -1,124 +1,80 @@
-const carros = ['Ford', 'Fiat', 'Honda'];
-carros.forEach(function(item, index, array) {
-  console.log(item.toUpperCase());
+// Selecione cada curso e retorne uma array
+// com objetos contendo o título, descricao,
+// aulas e horas de cada curso
+
+const cursos = document.querySelectorAll('.curso');
+const arrayCursos = Array.from(cursos);
+
+const objetosCurso = arrayCursos.map((curso) => {
+  const titulo = curso.querySelector('h1').innerText;
+  const descricao = curso.querySelector('p').innerText;
+  const aulas = curso.querySelector('span').innerText;
+  const horas = curso.querySelector('.aulas').innerText;
+
+  return {
+    titulo,
+    descricao,
+    aulas,
+    horas,  
+  }
+
 });
 
-// com Arrow Function
-carros.forEach((item, index, array) => {
-  console.log(item.toUpperCase());
+console.log(objetosCurso)
+
+
+// Retorne uma lista com os
+// números maiores que 100
+const numeros = [3, 44, 333, 23, 122, 322, 33];
+const numMaior = numeros.filter((num) => {
+  return num > 100;
 })
 
-const li = document.querySelectorAll('li');
+console.log(numMaior)
 
-li.forEach(i => i.classList.add('ativa'));
 
-li.forEach(function(item) {
-  item.classList.add('ativa');
-});
 
-const carros2 = ['Ford', 'Fiat', 'Honda'];
-carros2.forEach((item, index, array) => {
-  array[index] = 'Carro ' + item;
-});
 
-carros2; // ['Carro Ford', 'Carro Fiat', 'Carro Honda']
+// Verifique se Baixo faz parte
+// da lista de instrumentos e retorne true
+const instrumentos = ['Guitarra', 'Baixo', 'Bateria', 'Teclado']
+const temBaixo = instrumentos.some((item) => {
+  return item === 'Baixo';
+})
 
-const carros3 = ['Ford', 'Fiat', 'Honda'];
-const newCarros = carros.map((item) => {
-  return 'Carro ' + item;
-});
+console.log(temBaixo)
 
-carros3; // ['Ford', 'Fiat', 'Honda']
-newCarros; // ['Carro Ford', 'Carro Fiat', 'Carro Honda'];
 
-const carros4 = ['Ford', 'Fiat', 'Honda'];
-const newCarros2 = carros.map((item) => {
-  const novoValor = 'Carro ' + item;
-});
-
-newCarros; // [undefined, undefined, undefined];
-
-const numeros = [2, 4, 6, 8, 10, 12, 14];
-const numerosX2 = numeros.map(n => n * 2);
-
-numerosX3; // [6, 12, 18, 24, 30, 36, 42];
-
-const numeros2 = [2, 4, 6, 8, 10, 12, 14];
-const numerosX3 = numeros.map(n => n * 3);
-
-numerosX3; // [6, 12, 18, 24, 30, 36, 42];
-
-const aulas = [
+// Retorne o valor total das compras
+const compras = [
   {
-    nome: 'HTML 1',
-    min: 15
+    item: 'Banana',
+    preco: 'R$ 4,99'
   },
   {
-    nome: 'HTML 2',
-    min: 10
+    item: 'Ovo',
+    preco: 'R$ 2,99'
   },
   {
-    nome: 'CSS 1',
-    min: 20
+    item: 'Carne',
+    preco: 'R$ 25,49'
   },
   {
-    nome: 'JS 1',
-    min: 25
+    item: 'Refrigerante',
+    preco: 'R$ 5,35'
   },
+  {
+    item: 'Quejo',
+    preco: 'R$ 10,60'
+  }
 ]
 
-const tempoAulas = aulas.map(aula => aula.min);
-// [15, 10, 20, 25];
+const valorTotal = compras.reduce((acumulador, item) => {
+  const precoTotal = +item.preco.replace('R$', '').replace(',', '.')
+  
+  return acumulador + precoTotal;
 
-const puxarNomes = aula => aula.nome;
-const nomesAulas = aulas.map(puxarNomes);
-// ['HTML 1', 'HTML 2', 'CSS 1', 'JS 1']
+}, 0)
 
-const aulas2 = [10, 25, 30];
-const total1 = aulas2.reduce((acumulador, atual) => {
-  return acumulador + atual;
-});
-total1; // 65
-
-const total2 = aulas2.reduce((acc, cur) => acc + cur, 100);
-total2; // 165
-
-const aulas3 = [10, 25, 30];
-
-const numerosMaior = [10, 25, 60, 5, 35, 10];
-
-const maiorValor = numerosMaior.reduce((anterior, atual) => {
-  return anterior < atual ? atual : anterior;
-});
-
-maiorValor; // 60
-
-const aulas3 = [
-  {
-    nome: 'HTML 1',
-    min: 15
-  },
-  {
-    nome: 'HTML 2',
-    min: 10
-  },
-  {
-    nome: 'CSS 1',
-    min: 20
-  },
-  {
-    nome: 'JS 1',
-    min: 25
-  },
-]
-
-const listaAulas = aulas3.reduce((acumulador, atual, index) => {
-  acumulador[index] = atual.nome;
-  return acumulador;
-}, {})
-
-
-
-
-
+console.log(valorTotal)
 
