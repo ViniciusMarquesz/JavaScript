@@ -93,7 +93,7 @@ const maiorValor = numerosMaior.reduce((anterior, atual) => {
 
 maiorValor; // 60
 
-const aulas3 = [
+const aulas4 = [
   {
     nome: 'HTML 1',
     min: 15
@@ -112,7 +112,7 @@ const aulas3 = [
   },
 ]
 
-const listaAulas = aulas3.reduce((acumulador, atual, index) => {
+const listaAulas = aulas4.reduce((acumulador, atual, index) => {
   acumulador[index] = atual.nome;
   return acumulador;
 }, {})
