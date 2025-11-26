@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form2</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form name="contato" id="contato">
+      <label for="nome">Nome</label>
+      <input type="text" name="nome" id="nome" />
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" />
+      <label for="mensagem">Mensagem</label>
+      <textarea name="mensagem" id="mensagem"></textarea>
+    </form>
+
+    <script>
+      const form = document.getElementById("contato");
+      const dados = {};
+      function handleChange(event) {
+        dados[event.target.name] = event.target.value;
+      }
+      form.addEventListener("change", handleChange);
+    </script>
+  </body>
+</html>
