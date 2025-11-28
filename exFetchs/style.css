@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #212a42, #0a1633);
+  padding: 40px;
+  color: #fff;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Estilo geral dos cards */
+.card {
+  background: #fff;
+  color: #222;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transition: 0.3s;
+  animation: fadeIn 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-cep {
+  border-top: 8px solid #1e90ff;
+}
+
+.card-btc {
+  border-top: 8px solid #32cd32;
+}
+
+.card-chuck {
+  border-top: 8px solid #ff8c00;
+}
+
+.card h1,
+.card h2 {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #dce3f0;
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 10px;
+
+}
+
+input:focus {
+  border-color: #1e90ff;
+  box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.25);
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #1e3c72;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background: #2a5298;
+}
+
+.resultadoCep {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.resultadoCep,
+.btc,
+.piada {
+  background: #f5f7fc;
+  color: #111;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+  border-left: 6px solid #1e3c72;
+}
+
