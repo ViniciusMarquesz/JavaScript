@@ -8,7 +8,6 @@ const anoNovoDiv  = document.querySelector('#anonovo');
 const botaoTema  = document.getElementById('toggle-theme');
 const html = document.documentElement;
 
-
 function atualizarTela() {
   const tempoNatal = natal.total;
   const tempoAno = anoNovo.total;
