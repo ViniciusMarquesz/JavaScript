@@ -1,30 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-br" data-theme="dark">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Countdown - Natal e Ano Novo</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Lista de Países</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <button id="toggle-theme" class="theme-btn">🌙</button>
+    <div class="container">
+      <h1>Busca de Países</h1>
 
-    <main class="container">
-      <h1>Contagem Regressiva</h1>
+      <div class="search-box">
+        <input
+          type="text"
+          id="countryInput"
+          placeholder="Digite o nome do país..."
+        />
+        <button id="searchBtn">Buscar</button>
+      </div>
 
-      <section class="box">
-        <h2>🎄 Tempo para o Natal</h2>
-        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/606/606807.png" alt="Natal">
-        <div id="natal" class="timer"></div>
-      </section>
+      <p id="statusMessage" class="status"></p>
 
-      <section class="box">
-        <h2>✨ Tempo para o Ano Novo</h2>
-        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="Ano Novo">
-        <div id="anonovo" class="timer"></div>
-      </section>
-    </main>
+      <div id="countryBox" class="country hidden">
+        <img id="flag" class="flag" alt="Bandeira" />
 
-    <script type="module" src="script.js"></script>
+        <h2 id="countryName"></h2>
+        <p><strong>Capital:</strong> <span id="capital"></span></p>
+        <p><strong>Região:</strong> <span id="region"></span></p>
+        <p><strong>População:</strong> <span id="population"></span></p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
